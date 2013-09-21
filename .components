@@ -1,0 +1,10 @@
+---
+:orm: mongomapper
+:test: none
+:mock: none
+:script: jquery
+:renderer: erb
+:stylesheet: sass
+:namespace: Swapi
+:migration_format: number
+:admin_renderer: erb
