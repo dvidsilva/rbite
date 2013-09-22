@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Cantora+One);
 body {
   min-height: 100%;
   background-image: url("../images/bg.png");
@@ -21,12 +20,12 @@ section.landing {
   section.landing p {
     color: white;
     text-align: center;
-    font-weight: 700;
+    font-weight: 300;
     margin-top: 12px;
-    font-family: 'Cantora One', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     font-size: 15pt; }
   section.landing a {
-    font-family: 'Cantora One', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     display: block;
     width: 160pt;
     margin: 5px auto;
@@ -55,6 +54,10 @@ section.app {
   box-shadow: 0px 0px 22px rgba(255, 255, 255, 0.3);
   border-radius: 7px;
   margin-top: 10pt; }
+  section.app a > img {
+    width: 60px;
+    display: block;
+    margin: 0 auto; }
   section.app h1 {
     margin: 0;
     padding: 0; }
@@ -96,7 +99,61 @@ section.app {
         padding: 0;
         margin: 0;
         padding-left: 16px; }
+  section.app #chat h3 {
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    width: 100%;
+    color: #cecece;
+    font-size: 18px; }
+  section.app #chat ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+  section.app #chat li {
+    display: block;
+    width: 100%; }
+    section.app #chat li::after {
+      content: ' ';
+      width: 100%;
+      display: block;
+      height: 1px;
+      background: rgba(228, 226, 226, 0.44);
+      clear: both; }
+    section.app #chat li img {
+      display: block;
+      width: 12%;
+      margin: 4px;
+      border: 1px solid white;
+      border-radius: 50%;
+      float: left; }
+    section.app #chat li p {
+      width: 79%;
+      float: left;
+      padding: 0;
+      margin: 0;
+      padding-left: 16px;
+      margin-top: 10px; }
+    section.app #chat li.his img {
+      float: right; }
 
 @media screen and (max-width: 600px) {
+  body {
+    margin: 0;
+    padding: 0;
+    padding: 0; }
+
   section.landing {
-    width: 100%; } }
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin: 20px 0; }
+    section.landing > * {
+      margin: 10px; }
+
+  section.app {
+    width: 100%;
+    padding: 0;
+    margin: 20px 0; }
+    section.app > * {
+      margin: 10px; } }

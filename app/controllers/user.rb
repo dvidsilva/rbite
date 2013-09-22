@@ -89,7 +89,7 @@ Swapi::App.controllers :user do
 
 
     get :locations do
-        # Location.all.to_json
+        #User.all.to_json
     end
 
     # params[:userdata][:total] me trae el total de mancitos

@@ -1,11 +1,36 @@
 <section class='app'>
+    <a href="<%=request.base_url%>">
+        <img src="<%=request.base_url%>/images/logosmaller.png" >
+    </a>
+    <div id="search">
     <script type="in/Login">
         <h2 class='linkedin'>Hello, <?js= firstName ?> <?js= lastName ?></h2>
         <p>What are you looking for?</p>
         <textarea id="needs"></textarea>
     </script>
+    </div>
     <div id="results"></div>
-
+    <div id="chat" class="hide" >
+        <h3>Conversation with Jefferson</h3>
+        <ul>
+            <li class='mine'>
+                <img src="http://m.c.lnkd.licdn.com/mpr/mprx/0_7GH6c0Vad6DFJwolD1ZHcYRmENKFOoQlD3nwAOWCFhAkJIq07-WoPqyem_g">
+                <p>Hey, I'm looking for a designer, </p>
+            </li>
+             <li class='his'>
+                <img src="http://m.c.lnkd.licdn.com/mpr/mprx/0_1IbP-ifoPqmYfn2rn4og-GSEcz0pfn2rBUJOqGgQylYxHBYYzR6xne2DX8n">
+                <p>Cool, tell me about your project... </p>
+            </li>
+            <li class='mine'>
+                <img src="http://m.c.lnkd.licdn.com/mpr/mprx/0_7GH6c0Vad6DFJwolD1ZHcYRmENKFOoQlD3nwAOWCFhAkJIq07-WoPqyem_g">
+                <p>Sure, thanks for the reply, we want to create better sex toys </p>
+            </li>
+             <li class='his'>
+                <img src="http://m.c.lnkd.licdn.com/mpr/mprx/0_1IbP-ifoPqmYfn2rn4og-GSEcz0pfn2rBUJOqGgQylYxHBYYzR6xne2DX8n">
+                <p>Love the idea, meet me by the main door </p>
+            </li>
+        </ul>
+    </div>
 </section>
 
 
@@ -80,7 +105,7 @@ display = function(data){
         nn += '<li>';
         if (nothing.results.hasOwnProperty(key)) {
             nn += "<img src='"+nothing.results[key].pictureUrl+"' />";
-            nn += "<h3>"+nothing.results[key].firstName+"</h3>";
+            nn += "<h3 class='chat'>"+nothing.results[key].firstName+"</h3>";
             nn += "<p>"+nothing.results[key].headline+"</p>";
         }
         nn += '</li>';
@@ -154,7 +179,10 @@ IN.Event.on(IN,'logout', function(){
     theuserisat = {};
 });
 
-
+$(document).on('click','.chat',function(){
+    $('#search, #results').hide();
+    $('#chat').show();
+});
 
 </script>
 
