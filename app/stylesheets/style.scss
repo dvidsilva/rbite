@@ -113,6 +113,11 @@ section.app {
                     margin: 0;
                     padding-left: 16px;
                 }
+                em {
+                    color:darken(white,10%);
+                    float:right;
+                    font-size:11px;
+                }
             }
         }
     }

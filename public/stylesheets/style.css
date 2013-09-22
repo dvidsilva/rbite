@@ -92,13 +92,18 @@ section.app {
         margin-left: 10px;
         float: left;
         width: 70%;
-        color: #cecece; }
+        color: #cecece;
+        cursor: pointer; }
       section.app #results ul li p {
         width: 70%;
         float: left;
         padding: 0;
         margin: 0;
         padding-left: 16px; }
+      section.app #results ul li em {
+        color: #e6e6e6;
+        float: right;
+        font-size: 11px; }
   section.app #chat h3 {
     margin: 0;
     padding: 0;
