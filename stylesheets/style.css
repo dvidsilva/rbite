@@ -1,0 +1,54 @@
+label {
+  /* text-transform:capitalize; */ 
+}
+.tab-content {
+  border-bottom: 1px solid lightgray;
+  box-shadow: 4px 3px 1px rgba(0,0,0,0.13);
+  padding-bottom:20px;
+  margin-bottom:20px;
+}
+a {
+  color: rgb(17, 145, 194) !important;
+}
+.nav.nav-tabs.nav-stacked.sections-nav{
+  width:20%;
+}
+#Instrucciones {
+  position:relative;
+}
+.menuoverlay {
+  background:white;
+  z-index:10;
+  position:absolute;
+  height:300px;
+  width:20%;
+  margin-left:-20%;
+}
+<<<<<<< HEAD
+=======
+
+
+.multiselect {
+    width:20em;
+    height:15em;
+    border:solid 1px #c0c0c0;
+    overflow:auto;
+}
+ 
+
+
+@media (max-width: 767px){
+  .nav.nav-tabs.nav-stacked.sections-nav {
+    width: 100%;
+  }  
+  .tab-content {
+    width:100%;
+    clear:both;
+    display:block;
+  }
+  label.control-label {
+        text-align:center;
+  }
+}
+
+>>>>>>> 96ab30187dac50fb56a29275eb6bf2ae837f764a

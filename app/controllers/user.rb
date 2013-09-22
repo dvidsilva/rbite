@@ -53,6 +53,8 @@ Swapi::App.controllers :user do
         params[:theuserisat] = {}
         params[:theuserisat][:coords] = {}
     end
+    #@Usuario.everything = params[:userdata]["values"]["0"]
+    @Usuario.pictureUrl = params[:pictureUrl]
     @Usuario.loc =  [params[:theuserisat][:coords][:longitude].to_f  , params[:theuserisat][:coords][:latitude].to_f  ];
     @Usuario.save()
     @loc = Location.create({:cord => [ params[:theuserisat][:coords][:longitude].to_f , params[:theuserisat][:coords][:latitude].to_f ] ,

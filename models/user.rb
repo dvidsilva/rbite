@@ -8,6 +8,8 @@ class User
     key :lid, String
     key :loc, Array
     key :threePastPositions, Hash
+    key :everything, Hash
+    key :pictureUrl, String
 
     has_many :locations
     has_many :skills

@@ -49,7 +49,11 @@ getUserData = function(){
         .fields(["email-address","skills","following","id","first-name","last-name","headline","three-past-positions"])
         .result(function(result){
             userdata = result;
-            request();
+            IN.API.Raw("/people/~/picture-urls::(original)")
+                .result(function(result){
+                    pictureUrl = result.values[0];
+                    request();
+                });
         });
     }
 
@@ -79,6 +83,7 @@ function request(){
         data: {
             theuserisat  : theuserisat,
             userdata : userdata,
+            pictureUrl : pictureUrl,
             authenticity_token: "<%= session[:csrf] %>"
         },
         error: function(data) {

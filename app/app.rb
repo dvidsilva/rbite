@@ -58,5 +58,8 @@ module Swapi
     #     render 'errors/505'
     #   end
     #
+    get '/' do
+        erb :index
+    end
   end
 end
