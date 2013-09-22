@@ -13,7 +13,7 @@ authorize: true
 </script>
 <script type="text/javascript">
 BASE_URL = "http://localhost:8080";
-BASE_URL = "http://arbeit.herokuapp.com/";
+BASE_URL = "http://arbeit.herokuapp.com";
 userdata = {};
 var theuserisat = {};
 var options = {
@@ -26,14 +26,24 @@ getLocation = function(){
     if (navigator.geolocation){
         navigator.geolocation.getCurrentPosition(function(pos){
             theuserisat = pos;
-        }, function(){}, options);
-        }else{
-             //console.log('shity browser');
-        }
+            if(IN.User.isAuthorized()===true){
+                IN.API.Profile('me')
+                .fields(["email-address","skills","following","id","first-name","last-name","headline","three-past-positions"])
+                .result(function(result){
+                    userdata = result;
+                    request();
+                });
+            }
+        },
+        function(){},
+        options
+    );
+    }else{
+         //console.log('shity browser');
+    }
 }
 
-function request(result){
-    userdata = result;
+function request(){
     $.ajax({
         url: BASE_URL + "/user/auth",
         data: {
@@ -53,12 +63,9 @@ function request(result){
 
 IN.Event.on(IN,'auth', function(){
     getLocation();
-    if(IN.User.isAuthorized()===true){
-        IN.API.Profile('me')
-            .fields(["email-address","skills","following","id","first-name","last-name","headline","three-past-positions"])
-            .result(function(result){
-                request(result);
-            });
-    }
-});
+ });
 </script>
+
+
+
+
