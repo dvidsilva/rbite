@@ -27,6 +27,10 @@ Swapi::App.controllers :user do
     erb :'user/linkedin', :layout => false
   end
 
+  get :nearest do
+       @close = User.nearest([ -122.1 , 37.2 ], 200)
+       @close.to_json
+  end
 
   post :auth do
     @Usuario = User.where({:lid => params[:userdata]["values"]["0"][:id]  })
@@ -49,9 +53,7 @@ Swapi::App.controllers :user do
         params[:theuserisat] = {}
         params[:theuserisat][:coords] = {}
     end
-    lo =  params[:theuserisat][:coords][:longitude] || 0;
-    la =  params[:theuserisat][:coords][:latitude] || 0;
-    @Usuario.loc =  [lo , la ];
+    @Usuario.loc =  [params[:theuserisat][:coords][:longitude].to_f  , params[:theuserisat][:coords][:latitude].to_f  ];
     @Usuario.save()
     @loc = Location.create({:cord => [ params[:theuserisat][:coords][:longitude].to_f , params[:theuserisat][:coords][:latitude].to_f ] ,
                              :user => @Usuario ,
