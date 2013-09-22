@@ -53,9 +53,12 @@ Swapi::App.controllers :user do
     la =  params[:theuserisat][:coords][:latitude] || 0;
     @Usuario.loc =  [lo , la ];
     @Usuario.save()
-    @loc = Location.create( {:cord => [ params[:theuserisat][:coords][:longitude].to_f , params[:theuserisat][:coords][:latitude].to_f ] , :user => @Usuario, :lid => @Usuario.lid } );
+    @loc = Location.create({:cord => [ params[:theuserisat][:coords][:longitude].to_f , params[:theuserisat][:coords][:latitude].to_f ] ,
+                             :user => @Usuario ,
+                             :lid => @Usuario.lid
+                        });
     @loc.save()
-    @loc.to_json
+    @Usuario.to_json
   end
 
 
