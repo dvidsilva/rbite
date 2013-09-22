@@ -1,13 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Cantora+One);
-
-body {
-    min-height:100%;
-    background-image:url('../images/bg.png');
-    background-position:center top;
-    background-size:cover;
-    background-repeat:no-repeat;
-}
-section.landing {
+@mixin sk {
     h1{
         margin:0;
         padding:0;
@@ -18,6 +10,17 @@ section.landing {
     background-color:rgba(0,0,0,0.4);
     box-shadow:0px 0px 22px rgba(255,255,255,0.3);
     border-radius:7px;
+
+}
+body {
+    min-height:100%;
+    background-image:url('../images/bg.png');
+    background-position:center top;
+    background-size:extend;
+    background-repeat:no-repeat;
+}
+section.landing {
+    @include sk;
     img {
         max-width:100%;
     }
@@ -41,6 +44,7 @@ section.landing {
         padding:10pt;
         font-size:14pt;
         border-radius:7px;
+        transition:all 0.2s;
         &:hover, &:link , &:active {
             text-decoration:none;
         }
@@ -49,7 +53,28 @@ section.landing {
             color:#009EAA;
             background:white;
             width:200pt;
-            transition:all 0.7s;
+            transition:all 0.3s;
         }
    }
+}
+
+
+
+section.app {
+    @include sk;
+    margin-top:10pt;
+    h2 {
+        color:white;
+    }
+    p {
+        color:darken(white,5%);
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    section.landing {
+        width:100%;
+    }
+
 }

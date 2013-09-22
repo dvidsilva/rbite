@@ -3,7 +3,7 @@ body {
   min-height: 100%;
   background-image: url("../images/bg.png");
   background-position: center top;
-  background-size: cover;
+  background-size: extend;
   background-repeat: no-repeat; }
 
 section.landing {
@@ -36,7 +36,8 @@ section.landing {
     font-weight: 700;
     padding: 10pt;
     font-size: 14pt;
-    border-radius: 7px; }
+    border-radius: 7px;
+    transition: all 0.2s; }
     section.landing a:hover, section.landing a:link, section.landing a:active {
       text-decoration: none; }
     section.landing a:hover {
@@ -44,4 +45,24 @@ section.landing {
       color: #009EAA;
       background: white;
       width: 200pt;
-      transition: all 0.7s; }
+      transition: all 0.3s; }
+
+section.app {
+  width: 320px;
+  margin: 40pt auto;
+  padding: 20pt 30pt 25pt;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 22px rgba(255, 255, 255, 0.3);
+  border-radius: 7px;
+  margin-top: 10pt; }
+  section.app h1 {
+    margin: 0;
+    padding: 0; }
+  section.app h2 {
+    color: white; }
+  section.app p {
+    color: #f2f2f2; }
+
+@media screen and (max-width: 600px) {
+  section.landing {
+    width: 100%; } }

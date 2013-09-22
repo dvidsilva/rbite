@@ -1,9 +1,15 @@
-<h1 style='display:none;'>hola</h1>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<section class='app'>
+    <script type="in/Login">
+        <h2 class='linkedin'>Hello, <?js= firstName ?> <?js= lastName ?></h2>
+        <p>What are you looking for?</p>
+        <textarea id="needs"></textarea>
+    </script>
 
-<script type="in/Login">
-Hello, <?js= firstName ?> <?js= lastName ?>
-</script>
+
+</section>
+
+
+
 <script type="text/javascript" src="http://platform.linkedin.com/in.js">
 suppressWarnings: true
 api_key: 60r2wa6mwqj8
@@ -12,6 +18,7 @@ authorize: true
 
 
 <script type="text/javascript">
+
 <% if PADRINO_ENV == 'development' %>
     BASE_URL = "http://localhost:8080";
 <%else%>
@@ -49,6 +56,12 @@ getUserData = function(){
         .fields(["email-address","skills","following","id","first-name","last-name","headline","three-past-positions"])
         .result(function(result){
             userdata = result;
+            $('#needs').tagsInput({
+                'defaultText':'try me',
+                'onAddTag': function(){
+                    reloadNearby();
+                },
+            });
             IN.API.Raw("/people/~/picture-urls::(original)")
                 .result(function(result){
                     pictureUrl = result.values[0];
@@ -58,6 +71,23 @@ getUserData = function(){
     }
 
 }
+
+reloadNearby = function(){
+    $.ajax({
+        url: BASE_URL + "/user/nearby",
+        data: {
+            needs  : $('#needs').val() ,
+            location : theuserisat,
+        },
+        error: function(data) {
+            console.log(data);
+        },
+        success: function( data ) {
+            console.log(data);
+        }
+    });
+};
+
 
 getLocation = function(){
     if (navigator.geolocation){
