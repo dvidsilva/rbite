@@ -40,9 +40,6 @@ Swapi::App.controllers :user do
 
 
   post :auth do
-    User.delete_all
-    Location.delete_all
-    Skill.delete_all
     @Usuario = User.where({:lid => params[:userdata]["values"]["0"][:id]  })
     if @Usuario.count > 0
         @Usuario = User.first({:lid => params[:userdata]["values"]["0"][:id]  })
