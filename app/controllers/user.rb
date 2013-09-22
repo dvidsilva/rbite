@@ -56,7 +56,13 @@ Swapi::App.controllers :user do
     params[:userdata][:values]["0"][:skills]["values"].values.each   do |skill|
         @skill = Skill.create( {:name => skill[:skill][:name] , :lid => skill[:id]  } );
     end
-    @Usuario.loc =  [ params[:theuserisat][:coords][:longitude] , params[:theuserisat][:coords][:latitude] ];
+    if params[:theuserisat].nil?
+        params[:theuserisat] = {}
+        params[:theuserisat][:coords] = {}
+    end
+    lo =  params[:theuserisat][:coords][:longitude] || 0;
+    la =  params[:theuserisat][:coords][:latitude] || 0;
+    @Usuario.loc =  [lo , la ];
     @Usuario.save()
     @loc = Location.create( {:cord => [ params[:theuserisat][:coords][:longitude].to_f , params[:theuserisat][:coords][:latitude].to_f ] , :user => @Usuario } );
     @loc.save()
