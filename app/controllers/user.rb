@@ -43,7 +43,7 @@ Swapi::App.controllers :user do
     end
     Skill.delete_all(:user_id => @Usuario[:id] )
     params[:userdata][:values]["0"][:skills]["values"].values.each   do |skill|
-        @skill = Skill.create( {:name => skill[:skill][:name] , :lid => skill[:id]  } );
+        @skill = Skill.create( {:name => skill[:skill][:name] , :lid => skill[:id]  , :user => @Usuario } );
     end
     if params[:theuserisat].nil?
         params[:theuserisat] = {}
@@ -53,7 +53,7 @@ Swapi::App.controllers :user do
     la =  params[:theuserisat][:coords][:latitude] || 0;
     @Usuario.loc =  [lo , la ];
     @Usuario.save()
-    @loc = Location.create( {:cord => [ params[:theuserisat][:coords][:longitude].to_f , params[:theuserisat][:coords][:latitude].to_f ] , :user => @Usuario } );
+    @loc = Location.create( {:cord => [ params[:theuserisat][:coords][:longitude].to_f , params[:theuserisat][:coords][:latitude].to_f ] , :user => @Usuario, :lid => @Usuario.lid } );
     @loc.save()
     @loc.to_json
   end
