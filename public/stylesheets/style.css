@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Cantora+One);
 body {
   min-height: 100%;
   background-image: url("../images/bg.png");
@@ -8,7 +9,7 @@ body {
 section.landing {
   width: 320px;
   margin: 40pt auto;
-  padding: 20pt 30pt 100pt 30pt;
+  padding: 20pt 30pt 25pt;
   background-color: rgba(0, 0, 0, 0.4);
   box-shadow: 0px 0px 22px rgba(255, 255, 255, 0.3);
   border-radius: 7px; }
@@ -17,3 +18,30 @@ section.landing {
     padding: 0; }
   section.landing img {
     max-width: 100%; }
+  section.landing p {
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 12px;
+    font-family: 'Cantora One', sans-serif;
+    font-size: 15pt; }
+  section.landing a {
+    font-family: 'Cantora One', sans-serif;
+    display: block;
+    width: 160pt;
+    margin: 5px auto;
+    text-align: center;
+    background: white;
+    color: #009EAA;
+    font-weight: 700;
+    padding: 10pt;
+    font-size: 14pt;
+    border-radius: 7px; }
+    section.landing a:hover, section.landing a:link, section.landing a:active {
+      text-decoration: none; }
+    section.landing a:hover {
+      opacity: 0.8;
+      color: #009EAA;
+      background: white;
+      width: 200pt;
+      transition: all 0.7s; }
