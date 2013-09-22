@@ -62,6 +62,40 @@ section.app {
     color: white; }
   section.app p {
     color: #f2f2f2; }
+  section.app #results ul {
+    margin: 0;
+    padding: 0;
+    margin-top: 20px; }
+    section.app #results ul li {
+      display: block;
+      width: 100%; }
+      section.app #results ul li::after {
+        content: ' ';
+        width: 100%;
+        display: block;
+        height: 1px;
+        background: rgba(228, 226, 226, 0.44);
+        clear: both; }
+      section.app #results ul li img {
+        display: block;
+        width: 20%;
+        margin: 4px;
+        border: 1px solid white;
+        border-radius: 50%;
+        float: left; }
+      section.app #results ul li h3 {
+        margin: 0;
+        padding: 0;
+        margin-left: 10px;
+        float: left;
+        width: 70%;
+        color: #cecece; }
+      section.app #results ul li p {
+        width: 70%;
+        float: left;
+        padding: 0;
+        margin: 0;
+        padding-left: 16px; }
 
 @media screen and (max-width: 600px) {
   section.landing {
