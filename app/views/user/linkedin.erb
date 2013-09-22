@@ -12,7 +12,7 @@ api_key: 60r2wa6mwqj8
 authorize: true
 </script>
 <script type="text/javascript">
-//BASE_URL = "http://localhost:8080";
+BASE_URL = "http://localhost:8080";
 BASE_URL = "http://arbeit.herokuapp.com";
 userdata = {};
 var theuserisat = {};
@@ -65,9 +65,11 @@ getLocation = function(){
 function request(){
     $.ajax({
         url: BASE_URL + "/user/auth",
+        type: 'POST',
         data: {
             theuserisat  : theuserisat,
-            userdata : userdata
+            userdata : userdata,
+            authenticity_token: "<%= session[:csrf] %>"
         },
         error: function(data) {
             console.log(data);

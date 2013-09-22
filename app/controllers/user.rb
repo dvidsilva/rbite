@@ -39,7 +39,7 @@ Swapi::App.controllers :user do
   end
 
 
-  get :auth do
+  post :auth do
     User.delete_all
     Location.delete_all
     Skill.delete_all
