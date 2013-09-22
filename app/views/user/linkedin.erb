@@ -7,13 +7,11 @@ Hello, <?js= firstName ?> <?js= lastName ?>.
 
 
 <script type="text/javascript" src="http://platform.linkedin.com/in.js">
-    api_key: 60r2wa6mwqj8
-    authorize: true
-    // IN.User.isAuthorized()
-
+suppressWarnings: true
+api_key: "60r2wa6mwqj8"
+authorize: true
 </script>
-<script>
-//Initialization variables
+<script type="text/javascript">
 BASE_URL = "http://localhost:8080";
 BASE_URL = "http://arbeit.herokuapp.com/";
 userdata = {};
@@ -34,6 +32,23 @@ getLocation = function(){
         }
 }
 
+function request(result){
+    userdata = result;
+    $.ajax({
+        url: BASE_URL + "/user/auth",
+        data: {
+            theuserisat  : theuserisat,
+            userdata : userdata
+        },
+        error: function(data) {
+            console.log(data);
+        }
+        success: function( data ) {
+            console.log(data);
+        }
+    });
+}
+
 
 
 IN.Event.on(IN,'auth', function(){
@@ -42,23 +57,8 @@ IN.Event.on(IN,'auth', function(){
         IN.API.Profile('me')
             .fields(["email-address","skills","following","id","first-name","last-name","headline","three-past-positions"])
             .result(function(result){
-                userdata = result;
+                request(result);
             });
     }
 });
-
-
-request = function(){
-    $.ajax({
-        url: BASE_URL + "/user/auth",
-        data: {
-            theuserisat  : theuserisat,
-            userdata : userdata
-        },
-        success: function( data ) {
-            console.log(data);
-        }
-    });
-}
 </script>
-

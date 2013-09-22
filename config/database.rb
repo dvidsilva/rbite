@@ -8,7 +8,8 @@
 #  when :production  then MongoMapper.database = 'swapi_production'
 #  when :test        then MongoMapper.database = 'swapi_test'
 #end
-regex_match = /.*:\/\/(.*):(.*)@(.*):(.*)\//.match(ENV['MONGOLAB_URI'])
+mongo_uri = "mongodb://heroku_app18248401:63obs1jcrhjg160a27pokem684@ds045628.mongolab.com:45628/heroku_app18248401";
+regex_match = /.*:\/\/(.*):(.*)@(.*):(.*)\//.match(mongo_uri)
 host = regex_match[3]
 port = regex_match[4]
 db_name = regex_match[1]
