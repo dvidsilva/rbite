@@ -78,6 +78,7 @@ reloadNearby = function(){
         data: {
             needs  : $('#needs').val() ,
             location : theuserisat,
+            currentid : userdata.values[0].id
         },
         error: function(data) {
             console.log(data);

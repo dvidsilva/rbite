@@ -17,6 +17,9 @@ class User
     ensure_index :lid
 
     timestamps!
+      scope :nearby,  lambda {
+          |query,range| where(:loc => { :$near => query  , :$maxDistance => range    })
+      }
 
     def self.nearest(query,range)
         case query
