@@ -12,6 +12,9 @@ source 'https://rubygems.org'
 #
 gem 'unicorn'
 
+gem 'geokit'
+
+
 # Project requirements
 gem 'rake'
 

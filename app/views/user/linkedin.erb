@@ -1,0 +1,63 @@
+<h1>Hola</h1>
+
+
+<script type="in/Login">
+Hello, <?js= firstName ?> <?js= lastName ?>.
+</script>
+
+
+<script type="text/javascript" src="http://platform.linkedin.com/in.js">
+    api_key: 60r2wa6mwqj8
+    authorize: true
+    // IN.User.isAuthorized()
+
+</script>
+<script>
+//Initialization variables
+BASE_URL = "http://localhost:8080";
+userdata = {};
+var theuserisat = {};
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+
+getLocation = function(){
+    if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(function(pos){
+            theuserisat = pos;
+        }, function(){}, options);
+        }else{
+             //console.log('shity browser');
+        }
+}
+
+
+
+IN.Event.on(IN,'auth', function(){
+    getLocation();
+    if(IN.User.isAuthorized()===true){
+        IN.API.Profile('me')
+            .fields(["email-address","skills","following","id","first-name","last-name","headline","three-past-positions"])
+            .result(function(result){
+                userdata = result;
+            });
+    }
+});
+
+
+request = function(){
+    $.ajax({
+        url: BASE_URL + "/user/auth",
+        data: {
+            theuserisat  : theuserisat,
+            userdata : userdata
+        },
+        success: function( data ) {
+            console.log(data);
+        }
+    });
+}
+</script>
+

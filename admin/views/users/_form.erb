@@ -1,0 +1,73 @@
+<% error = @user.errors.include?(:name) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :name, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :name, :class => 'input-xlarge input-with-feedback', :autofocus => true %>
+    <span class='help-inline'><%= error ? f.error_message_on(:name) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @user.errors.include?(:email) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :email, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :email, :class => 'input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:email) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @user.errors.include?(:lastName) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :lastName, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :lastName, :class => 'input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:lastName) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @user.errors.include?(:firstName) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :firstName, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :firstName, :class => 'input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:firstName) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @user.errors.include?(:headline) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :headline, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :headline, :class => 'input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:headline) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @user.errors.include?(:lid) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :lid, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :lid, :class => 'input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:lid) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @user.errors.include?(:loc) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :loc, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :loc, :class => 'input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:loc) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @user.errors.include?(:threePastPositions) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :threePastPositions, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :threePastPositions, :class => 'input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:threePastPositions) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:users, :index), :class => 'btn' %>
+</div>

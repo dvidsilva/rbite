@@ -33,6 +33,9 @@ module Swapi
     end
 
     access_control.roles_for :admin do |role|
+    role.project_module :skills, '/skills'
+    role.project_module :locations, '/locations'
+    role.project_module :users, '/users'
     role.project_module :accounts, '/accounts'
     end
 
