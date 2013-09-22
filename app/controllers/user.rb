@@ -24,18 +24,7 @@ Swapi::App.controllers :user do
   end
 
   get :linkedin do
-    erb :'user/linkedin'
-    #client = LinkedIn::Client.new('60r2wa6mwqj8', 'KYgJra61uWbtN5Ju')
-    #rtoken = client.request_token.token
-    #rsecret = client.request_token.secret
-    #redirect client.request_token.authorize_url + "&redirect_uri=" + request.base_url + "/user/auth"
-
-
-    #client.authorize_from_request(rtoken, rsecret, pin)
-
-    # or authorize from previously fetched access keys
-    #client.authorize_from_access("OU812", "8675309")
-
+    erb :'user/linkedin', :layout => false
   end
 
 
