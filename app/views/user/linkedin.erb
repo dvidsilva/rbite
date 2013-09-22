@@ -4,7 +4,7 @@
         <p>What are you looking for?</p>
         <textarea id="needs"></textarea>
     </script>
-
+    <div id="results"></div>
 
 </section>
 
@@ -71,6 +71,23 @@ getUserData = function(){
     }
 
 }
+var nothing = {};
+display = function(data){
+    nothing = $.parseJSON(data);
+    $("#results").html('');
+    var nn = '<ul>';
+    for (var key in nothing.results) {
+        nn += '<li>';
+        if (nothing.results.hasOwnProperty(key)) {
+            nn += "<img src='"+nothing.results[key].pictureUrl+"' />";
+            nn += "<h3>"+nothing.results[key].firstName+"</h3>";
+            nn += "<p>"+nothing.results[key].headline+"</p>";
+        }
+        nn += '</li>';
+    }
+    nn += '</ul>';
+    $("#results").html(nn);
+}
 
 reloadNearby = function(){
     $.ajax({
@@ -84,9 +101,10 @@ reloadNearby = function(){
             console.log(data);
         },
         success: function( data ) {
-            console.log(data);
+            display(data);
         }
-    });
+    }
+    );
 };
 
 
