@@ -22,6 +22,25 @@ var options = {
   maximumAge: 0
 };
 
+function buildQuery(obj) {
+    var Result= '';
+    if(typeof(obj)== 'object') {
+        jQuery.each(obj, function(key, value) {
+            Result+= (Result) ? '&' : '';
+            if(typeof(value)== 'object' && value.length) {
+                for(var i=0; i<value.length; i++) {
+                    Result+= [key+'[]', encodeURIComponent(value[i])].join('=');
+                }
+            } else {
+                Result+= [key, encodeURIComponent(value)].join('=');
+            }
+        });
+    }
+    return Result;
+}
+
+
+
 getLocation = function(){
     if (navigator.geolocation){
         navigator.geolocation.getCurrentPosition(function(pos){
