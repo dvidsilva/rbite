@@ -43,21 +43,28 @@ function buildQuery(obj) {
 }
 
 
+getUserData = function(){
+    if(IN.User.isAuthorized()===true){
+        IN.API.Profile('me')
+        .fields(["email-address","skills","following","id","first-name","last-name","headline","three-past-positions"])
+        .result(function(result){
+            userdata = result;
+            request();
+        });
+    }
+
+}
 
 getLocation = function(){
     if (navigator.geolocation){
         navigator.geolocation.getCurrentPosition(function(pos){
             theuserisat = pos;
-            if(IN.User.isAuthorized()===true){
-                IN.API.Profile('me')
-                .fields(["email-address","skills","following","id","first-name","last-name","headline","three-past-positions"])
-                .result(function(result){
-                    userdata = result;
-                    request();
-                });
-            }
+            getUserData();
         },
-        function(){},
+        function(){
+            theuserisat = {};
+            getUserData();
+        },
         options
     );
     }else{
@@ -87,7 +94,14 @@ function request(){
 
 IN.Event.on(IN,'auth', function(){
     getLocation();
- });
+});
+IN.Event.on(IN,'logout', function(){
+    userdata = {};
+    theuserisat = {};
+});
+
+
+
 </script>
 
 
