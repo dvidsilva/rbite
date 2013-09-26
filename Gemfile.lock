@@ -36,6 +36,7 @@ GEM
       activesupport (~> 3.0)
       plucky (~> 0.5.2)
     multi_json (1.8.0)
+    newrelic_rpm (3.6.7.159)
     oauth (0.4.7)
     padrino (0.11.3)
       padrino-admin (= 0.11.3)
@@ -101,6 +102,7 @@ DEPENDENCIES
   geokit
   linkedin
   mongo_mapper
+  newrelic_rpm
   padrino (= 0.11.3)
   rake
   sass

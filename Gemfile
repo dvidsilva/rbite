@@ -40,3 +40,5 @@ gem 'padrino', '0.11.3'
 #
 
 gem 'linkedin'
+gem 'newrelic_rpm'
+
